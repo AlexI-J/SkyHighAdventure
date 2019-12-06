@@ -26,7 +26,7 @@ public class Main {
         while(player.isAlive()) {
             test.getDescription();
             command = inp.nextLine();
-            //Parser.parse(command);
+            Parser.parse(command);
         }
     }
 

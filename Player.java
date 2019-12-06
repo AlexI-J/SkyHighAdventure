@@ -38,4 +38,8 @@ public class Player {
         currentRoom = room;
     }
 
+    public String getCurrentRoom() {
+        return currentRoom;
+    }
+
 }

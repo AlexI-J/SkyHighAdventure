@@ -45,6 +45,9 @@ public class Room {
     public void getDescription() {
         System.out.println(name);
         System.out.println(description);
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println(items.get(i));
+        }
     }
 
     public void setExit(String exit, String destination) {
