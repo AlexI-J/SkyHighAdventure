@@ -26,19 +26,20 @@ public class Main {
         while(player.isAlive()) {
             test.getDescription();
             command = inp.nextLine();
-            Parser.parse(command);
+            parser.parse(command);
         }
     }
 
     public static void reset() {
         player.revive();
-        player.setCurrentRoom("test");
+        player.setCurrentRoom(test);
+        player.addItem("item");
         test.addItem("1");
         test.addItem("2");
         test.addItem("3");
-        test.setExit("north", "test2");
+        test.setExit("north", test2);
         test.setDescription("this is a test");
-        test.setExit("east", "test2");
+        test.setExit("east", test2);
     }
     
 }

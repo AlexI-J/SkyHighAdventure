@@ -5,13 +5,15 @@ public class Player {
     private static ArrayList<String> items = new ArrayList<String>();
     private String name;
     private boolean alive;
-    private String currentRoom;
+    //private String currentRoom;
+    private Room currentRoom;
     public static void main(String[] args) {
 
     }
 
     public Player(String name) {
         this.name = name;
+
     }
 
     public void addItem(String item) {
@@ -34,7 +36,13 @@ public class Player {
         alive = true;
     }
 
-    public void setCurrentRoom(String room) {
+    public void inventory() {
+        for (String i : items) {
+            System.out.println(items);
+        }
+    }
+
+    public void setCurrentRoom(Room room) {
         currentRoom = room;
     }
 

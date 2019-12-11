@@ -7,7 +7,7 @@ public class Room {
     private String name;
     private String description;
 
-    private static HashMap<String, String> exits = new HashMap<>();
+    private static HashMap<String, Room> exits = new HashMap<>();
 
     public static void main(String[] args) {
         exits = new ArrayList<String>();
@@ -50,13 +50,13 @@ public class Room {
         }
     }
 
-    public void setExit(String exit, String destination) {
+    public void setExit(String exit, Room destination) {
         exits.put(exit, destination);
     }
 
     public String move(String direction) {
         if (exits.get(direction.toLowerCase()) != null) {
-            Main.player.setCurrentRoom(exits.get(direction.toLowerCase()));
+            //Main.player.setCurrentRoom(exits.get(direction.toLowerCase()));
         } 
         return "You can't go that way";
     }
