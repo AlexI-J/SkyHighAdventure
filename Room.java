@@ -54,11 +54,16 @@ public class Room {
         exits.put(exit, destination);
     }
 
-    public String move(String direction) {
-        if (exits.get(direction.toLowerCase()) != null) {
-            //Main.player.setCurrentRoom(exits.get(direction.toLowerCase()));
-        } 
-        return "You can't go that way";
+    public boolean getExit(String exit) {
+        return exits.get(exit) != null;
+    }
+
+    public boolean hasItem(String item) {
+        return items.contains(item);
+    }
+
+    public void move(String direction) {
+        Main.player.setCurrentRoom(exits.get(direction));
     }
 
 }

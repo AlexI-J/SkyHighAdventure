@@ -5,7 +5,6 @@ public class Player {
     private static ArrayList<String> items = new ArrayList<String>();
     private String name;
     private boolean alive;
-    //private String currentRoom;
     private Room currentRoom;
     public static void main(String[] args) {
 
@@ -37,8 +36,9 @@ public class Player {
     }
 
     public void inventory() {
-        for (String i : items) {
-            System.out.println(items);
+        for (int i = 0; i < items.size(); i++) {
+            System.out.print(items.get(i) + ", ");
+            System.out.println();
         }
     }
 
@@ -46,8 +46,12 @@ public class Player {
         currentRoom = room;
     }
 
-    public String getCurrentRoom() {
+    public Room getCurrentRoom() {
         return currentRoom;
+    }
+
+    public boolean hasItem(String item) {
+        return items.contains(item);
     }
 
 }

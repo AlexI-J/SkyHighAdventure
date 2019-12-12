@@ -22,10 +22,10 @@ public class Main {
         name = inp.nextLine();
         player = new Player(name);
         reset();
+        player.getCurrentRoom().getDescription();
 
         while(player.isAlive()) {
-            test.getDescription();
-            command = inp.nextLine();
+            command = inp.nextLine().toLowerCase();
             parser.parse(command);
         }
     }
@@ -33,13 +33,13 @@ public class Main {
     public static void reset() {
         player.revive();
         player.setCurrentRoom(test);
-        player.addItem("item");
         test.addItem("1");
         test.addItem("2");
         test.addItem("3");
         test.setExit("north", test2);
+        test2.setExit("south", test);
         test.setDescription("this is a test");
-        test.setExit("east", test2);
+        test2.setDescription("this is a test2");
     }
     
 }
