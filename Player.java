@@ -6,13 +6,18 @@ public class Player {
     private String name;
     private boolean alive;
     private Room currentRoom;
+    private boolean proteinPowder;
+    private boolean strong;
+    private boolean warm;
+    private boolean mrO;
+    private boolean david;
+    private int ergCount = 0;
     public static void main(String[] args) {
 
     }
 
     public Player(String name) {
         this.name = name;
-
     }
 
     public void addItem(String item) {
@@ -54,4 +59,51 @@ public class Player {
         return items.contains(item);
     }
 
+    public void ergIncrement() {
+        ergCount++;
+    }
+
+    public int getErg() {
+        return ergCount;
+    }
+
+    public void setProtein(boolean protein) {
+        proteinPowder = protein;
+    }
+
+    public boolean getProtein() {
+        return proteinPowder;
+    }
+
+    public void setStrong(boolean strong) {
+        this.strong = strong;
+    }
+
+    public boolean getStrong() {
+        return strong;
+    }
+
+    public void setWarm(boolean warm) {
+        this.warm = warm;
+    }
+
+    public boolean isWarm() {
+        return warm;
+    }
+
+    public void setMrO(boolean mrO) {
+        this.mrO = mrO;
+    }
+
+    public boolean getMrO() {
+        return mrO;
+    }
+
+    public void setDavid(boolean david) {
+        this.david = david;
+    }
+
+    public boolean getDavid() {
+        return david;
+    }
 }

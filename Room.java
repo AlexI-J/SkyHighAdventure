@@ -2,20 +2,19 @@ import java.util.*;
 
 public class Room {
 
-    private static ArrayList<String> items = new ArrayList<String>();
-    private boolean isDark;
+    private ArrayList<String> items = new ArrayList<String>();
     private String name;
     private String description;
+    private boolean locked;
 
-    private static HashMap<String, Room> exits = new HashMap<>();
+    private HashMap<String, Room> exits = new HashMap<>();
 
     public static void main(String[] args) {
-        exits = new ArrayList<String>();
     }
 
-    public Room(String name, boolean isDark) {
+    public Room(String name, boolean locked) {
         this.name = name;
-        this.isDark = isDark;
+        this.locked = locked;
     }
 
     public void addItem(String item) {
@@ -26,18 +25,6 @@ public class Room {
         items.remove(item);
     }
 
-    public void setDark() {
-        isDark = true;
-    }
-
-    public void setLight() {
-        isDark = false;
-    }
-
-    public boolean isDark() {
-        return isDark;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -45,8 +32,10 @@ public class Room {
     public void getDescription() {
         System.out.println(name);
         System.out.println(description);
-        for (int i = 0; i < items.size(); i++) {
-            System.out.println(items.get(i));
+        if (items != null) {
+            for (int i = 0; i < items.size(); i++) {
+                System.out.println(items.get(i));
+            }
         }
     }
 
@@ -58,12 +47,24 @@ public class Room {
         return exits.get(exit) != null;
     }
 
+    public Room returnExit(String exit) {
+        return exits.get(exit);
+    }
+
     public boolean hasItem(String item) {
         return items.contains(item);
     }
 
     public void move(String direction) {
         Main.player.setCurrentRoom(exits.get(direction));
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
+    public boolean isLocked() {
+        return locked;
     }
 
 }
